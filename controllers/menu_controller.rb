@@ -13,8 +13,9 @@
      puts "1 - View all entries"
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
-     puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "4 - View Entry Number n"
+     puts "5 - Import entries from a CSV"
+     puts "6 - Exit"
      print "Enter your selection: "
  
      # #3
@@ -34,9 +35,13 @@
          main_menu
        when 4
          system "clear"
-         read_csv
+         view_entry_n
          main_menu
        when 5
+         system "clear"
+         read_csv
+         main_menu
+       when 6
          puts "Good-bye!"
          # #8
          exit(0)
@@ -74,7 +79,21 @@
     system "clear"
     puts "New entry created"
    end
- 
+   
+   def view_entry_n
+    print "I'd like to view entry #: "
+    entry_num = gets.chomp.to_i
+  
+    if entry_num <= address_book.entries.count
+      puts address_book.entries(entry_num)
+      system "clear"
+    else
+      puts "#{entry_num} is invalid"
+      view_entry_n
+    end
+   end   
+   
+   
    def search_entries
    end
  
