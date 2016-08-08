@@ -81,18 +81,18 @@
    end
    
    def view_entry_n
-    print "I'd like to view entry #: "
-    selection = gets.chomp.to_i
+      print "I'd like to view entry #: "
+      selection = gets.chomp.to_i
   
-    if selection < address_book.entries.count
-      puts address_book.entries[selection]
-      puts "Press enter to exit to menu"
-      gets.chomp
-      system "clear"
-    else
-      puts "#{selection} is invalid"
-      view_entry_n
-    end
+      if selection < address_book.entries.count
+        puts address_book.entries[selection]
+        puts "Press enter to exit to menu"
+        gets.chomp
+        system "clear"
+      else
+        puts "#{selection} is invalid"
+        view_entry_n
+      end
    end   
    
    def search_entries
