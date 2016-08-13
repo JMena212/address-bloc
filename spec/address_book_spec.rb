@@ -137,7 +137,7 @@ require_relative '../models/address_book'
      end
    end
    
-   # Test the binary_search method
+   # Test the iterative_search method
    describe "#iterative_search" do
      it "searches AddressBook for a non-existent entry" do
        book.import_from_csv("entries.csv")
