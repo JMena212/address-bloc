@@ -39,7 +39,7 @@
      entries.each do |entry|
        if entry.name == name
          return entry
-      end
+       end
      end
      return nil
    end
