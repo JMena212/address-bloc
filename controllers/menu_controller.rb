@@ -76,6 +76,19 @@
    end
  
    def search_entries
+      #9
+     print "Search by name: "
+     name = gets.chomp
+     # #10
+     match = address_book.binary_search(name)
+     system "clear"
+     # #11
+     if match
+       puts match.to_s
+       search_submenu(match)
+     else
+       puts "No match found for #{name}"
+     end
    end
  
    def read_csv
@@ -112,7 +125,10 @@
       case selection
           when "n"
           when "d"
+             delete_entry(entry)
           when "e"
+            edit_entry(entry)
+            entry_submenu(entry)
           when "m"
             system "clear"
             main_menu
@@ -122,4 +138,29 @@
             entry_submenu(entry)
       end
     end
+    
+   def delete_entry(entry)
+     address_book.entries.delete(entry)
+     puts "#{entry.name} has been deleted"
+   end
+   
+   
+   def edit_entry(entry)
+     # #4
+     print "Updated name: "
+     name = gets.chomp
+     print "Updated phone number: "
+     phone_number = gets.chomp
+     print "Updated email: "
+     email = gets.chomp
+     # #5
+     entry.name = name if !name.empty?
+     entry.phone_number = phone_number if !phone_number.empty?
+     entry.email = email if !email.empty?
+     system "clear"
+     # #6
+     puts "Updated entry:"
+     puts entry
+   end
+ 
  end
