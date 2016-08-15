@@ -15,6 +15,7 @@
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
      puts "5 - Exit"
+     puts "6 - Delete all entries"
      print "Enter your selection: "
  
      # #3
@@ -40,6 +41,10 @@
          puts "Good-bye!"
          # #8
          exit(0)
+       when 6
+         system "clear"
+         nuke
+         main_menu
        # #9
        else
          system "clear"
@@ -142,6 +147,11 @@
    def delete_entry(entry)
      address_book.entries.delete(entry)
      puts "#{entry.name} has been deleted"
+   end
+   
+   def nuke 
+     address_book.entries.clear
+     puts "All entries have been deleted"
    end
    
    
